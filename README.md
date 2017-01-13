@@ -48,11 +48,11 @@ For _me_ to use the following way:
   
 At __HOME:__
 ```bash
-sh -c "sudo $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -ho"
+sh -c "sudo -E $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -ho"
 ```
 At __WORK:__
 ```bash
-sh -c "sudo $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -w"
+sh -c "sudo -E $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -w"
 ```
 
 #Development/Usage for Others
@@ -64,7 +64,7 @@ Easiest way:
 (Installs all the tools listed above aside from PyCharm, Ansible and my personal configs.)
 
 ```bash
-sh -c "sudo $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -o"
+sh -c "sudo -E $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -o"
 ```
 
 Harder Way with own persisted configs/keys:

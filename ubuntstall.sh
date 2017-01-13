@@ -61,6 +61,7 @@ cd ~ || exit
 
 echo "Installing Oh my Zsh!"
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+#Need to exit zsh here
 
 echo "Installing Antigen"
 curl https://cdn.rawgit.com/zsh-users/antigen/v1.3.2/bin/antigen.zsh > ~/antigen.zsh
@@ -94,7 +95,7 @@ apt-get update
 apt-get install oracle-java8-installer
 
 echo "Downloading IntelliJ Community Edition, might take a while"
-wget https://download.jetbrains.com/idea/${ideaV}.tar.gz -O ~/tmp/idea.tar.gz
+wget https://download.jetbrains.com/idea/ideaIC-${ideaV}.tar.gz -O ~/tmp/idea.tar.gz
 
 echo "Unpacking IntelliJ to HomeDirectory"
 tar -xvf ~/tmp/idea.tar.gz ~
@@ -115,7 +116,7 @@ apt-get update
 apt-get install spotify
 
 echo "Install NixNote"
-add-apt-repository ppa:nixnote/nixnote2-daily
+add-apt-repository -y ppa:nixnote/nixnote2-daily
 apt update
 apt install nixnote2
 
