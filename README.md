@@ -97,7 +97,7 @@ git push
 └───files
 |   | .vimrc (vim config)
 |   | .zshrc (zsh config)
-|   | idH (private rsa key)
+|   | idh (private rsa key)
 |   | idH.pub (public rsa key)
 |   | sshconfighome (sshconfig home)
 ```

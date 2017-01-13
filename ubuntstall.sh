@@ -81,7 +81,7 @@ if [ ${ENV} != 2 ] ; then
     cp files/.vimrc ~
     if [ ${ENV} == 0 ] ; then
         cp files/sshconfighome ~/.ssh/config
-        cp files/idH ~/.ssh/id_rsa
+        cp files/idh ~/.ssh/id_rsa
         cp files/idH.pub ~/.ssh/id_rsa.pub
     fi
 fi
@@ -98,7 +98,8 @@ echo "Downloading IntelliJ Community Edition, might take a while"
 wget https://download.jetbrains.com/idea/ideaIC-${ideaV}.tar.gz -O ~/tmp/idea.tar.gz
 
 echo "Unpacking IntelliJ to HomeDirectory"
-tar -xvf ~/tmp/idea.tar.gz ~
+cd ~ || exit
+tar -xvf ~/tmp/idea.tar.gz
 
 
 # Only install at Home
@@ -106,7 +107,8 @@ if [ ${ENV} == 0 ] ; then
     echo "Downloading PyCharm, might take a while"
     wget https://download.jetbrains.com/python/pycharm-community-${pycharmV}.tar.gz -O ~/tmp/pycharm.tar.gz
     echo "Unpacking PyCharm to HomeDirectory"
-    tar -xvf ~/tmp/pycharm.tar.gz ~
+    cd ~ || exit
+    tar -xvf ~/tmp/pycharm.tar.gz
 fi
 
 echo "Installing Spotify"
