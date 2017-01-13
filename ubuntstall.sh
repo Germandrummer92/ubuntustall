@@ -6,6 +6,7 @@
 ideaV="2016.3.2"
 pycharmV="2016.3.2"
 keyPath="${HOME}/key.key"
+gradleV=3.3
 
 if [ "$0" = "home" ] || [ "$0" = "-ho" ] ; then
     ENV=0
@@ -32,7 +33,18 @@ mkdir ~/git-crypt
 echo "Installing Prerequisites"
 apt-get update
 apt-get -y upgrade
-apt-get -y install zsh python git mvn gradle vim make g++ libssl-dev openssl yakuake ssh firefox
+apt-get -y install zsh python git mvn  vim make g++ libssl-dev openssl yakuake ssh firefox python-simplejson
+
+#Fix Yakuake browser http://askubuntu.com/questions/62182/how-do-i-change-the-default-browser-that-konsole-opens-urls-with
+echo "[General]" >> ~/.kde/share/config/kdeglobals
+echo "BrowserApplication[$e]=!firefox" >> ~/.kde/share/config/kdeglobals
+
+#Install Gradle using SDKMan
+echo "Installed Prerequisites, on to Gradle, so first get SDKMan"
+curl -s https://get.sdkman.io | bash
+echo "Then gradle itself"
+sdk install gradle ${gradleV}
+
 # Install and Setup git-crypt to get encrypted .rc files
 echo "Installing Git-Crypt to later get .rc files"
 git clone https://github.com/AGWA/git-crypt.git ~/git-crypt
@@ -64,6 +76,7 @@ if [ ${ENV} == 0 ] ; then
     cp files/idH ~/.ssh/id_rsa
     cp files/idH.pub ~/.ssh/id_rsa.pub
 fi
+cd ~ || exit
 
 # Add PPA for Oracle JDK and install the newest version
 echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list
@@ -86,4 +99,28 @@ if [ ${ENV} == 0 ] ; then
     echo "Unpacking PyCharm to HomeDirectory"
     tar -xvf ~/tmp/pycharm.tar.gz ~
 fi
+
+echo "Install Spotify"
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+apt-get update
+apt-get install spotify
+
+if [ ${ENV} == 0 ] ; then
+    echo "Installing Ansible if Work Config "
+    git clone git://github.com/ansible/ansible.git --recursive
+    cd ./ansible || exit
+    # Also add to .zshrc
+    source ./hacking/env-setup -q
+    easy_install pip
+    pip install paramiko PyYAML Jinja2 httplib2 six
+    git pull --rebase
+fi
+
+echo "Install NixNote"
+add-apt-repository ppa:nixnote/nixnote2-daily
+apt update
+apt install nixnote2
+
+echo "FINISHED INSTALLATION, EXITING!"
 exit 0
