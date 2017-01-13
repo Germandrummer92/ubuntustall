@@ -57,6 +57,8 @@ sh -c "sudo $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall
 
 #Development/Usage for Others
 
+Tested on fresh Ubuntu 16.1 install/VM.
+
 Easiest way:
 
 (Installs all the tools listed above aside from PyCharm, Ansible and my personal configs.)

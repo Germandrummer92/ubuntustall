@@ -3,6 +3,7 @@
 # Date: 1/11/2017
 # This script installs my work/home pc with my preferred settings/tools
 # See README.md for easiest usage
+
 # Adjust this for customized versions/symmetric key path
 ideaV="2016.3.2"
 pycharmV="2016.3.2"
