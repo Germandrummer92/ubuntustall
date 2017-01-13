@@ -48,11 +48,11 @@ For _me_ to use the following way:
   
 At __HOME:__
 ```bash
-sudo -E sh -c  "curl https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh | bash -s -- -ho"```
+sudo -E sh -c  "curl https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh | bash -s -- -ho"
 ```
 At __WORK:__
 ```bash
-sudo -E sh -c  "curl https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh | bash -s -- -w"```
+sudo -E sh -c  "curl https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh | bash -s -- -w"
 ```
 #Development/Usage for Others
 
