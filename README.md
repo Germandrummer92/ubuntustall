@@ -28,7 +28,7 @@ clicking Links, see [StackOverflow Q](http://askubuntu.com/questions/62182/how-d
 ####Work-Configuration only:
 * [Ansible](https://www.ansible.com/)
 
-###Home-Configuration only:
+####Home-Configuration only:
 * [PyCharm Community Edition](https://www.jetbrains.com/pycharm/)
 
 
