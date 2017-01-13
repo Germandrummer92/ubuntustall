@@ -74,9 +74,9 @@ echo "Getting own .rc files"
 cd ~/tmp/ || exit
 git clone https://github.com/Germandrummer92/ubuntustall.git
 cd ubuntustall || exit
-git-crypt unlock "${keyPath}"
 
 if [ ${ENV} != 2 ] ; then
+    git-crypt unlock "${keyPath}"
     cp files/.zshrc ~
     cp files/.vimrc ~
     if [ ${ENV} == 0 ] ; then
