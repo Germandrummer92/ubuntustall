@@ -3,6 +3,7 @@
 # Date: 1/11/2017
 # This script installs my work/home pc with my preferred settings/tools
 # See README.md for easiest usage
+# Adjust this for customized versions/symmetric key path
 ideaV="2016.3.2"
 pycharmV="2016.3.2"
 keyPath="${HOME}/key.key"
@@ -15,11 +16,15 @@ else
         ENV=1
     fi
     if [ "$0" = "help" ] || [ "$0" = "-h" ] ; then
-    echo "USAGE: ubuntustall.sh work | home"
-    exit 0
+        echo "USAGE: ubuntustall.sh work | home"
+        exit 0
     else
-        echo "Wrong Parameter Entered, see https://github.com/Germandrummer92/ubuntustall/README.md for Usage Help"
-        exit 1
+        if [ "$0" = "other" ] || [ "$0" = "-o" ] ; then
+            ENV=2
+        else
+            echo "Wrong Parameter Entered, see https://github.com/Germandrummer92/ubuntustall/README.md for Usage Help"
+            exit 1
+        fi
     fi
 fi
 
@@ -69,12 +74,14 @@ git clone https://github.com/Germandrummer92/ubuntustall.git
 cd ubuntustall || exit
 git-crypt unlock "${keyPath}"
 
-cp files/.zshrc ~
-cp files/.vimrc ~
-if [ ${ENV} == 0 ] ; then
-    cp files/sshconfighome ~/.ssh/config
-    cp files/idH ~/.ssh/id_rsa
-    cp files/idH.pub ~/.ssh/id_rsa.pub
+if [ ${ENV} != 2 ] ; then
+    cp files/.zshrc ~
+    cp files/.vimrc ~
+    if [ ${ENV} == 0 ] ; then
+        cp files/sshconfighome ~/.ssh/config
+        cp files/idH ~/.ssh/id_rsa
+        cp files/idH.pub ~/.ssh/id_rsa.pub
+    fi
 fi
 cd ~ || exit
 
@@ -100,27 +107,28 @@ if [ ${ENV} == 0 ] ; then
     tar -xvf ~/tmp/pycharm.tar.gz ~
 fi
 
-echo "Install Spotify"
+echo "Installing Spotify"
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 apt-get update
 apt-get install spotify
 
-if [ ${ENV} == 0 ] ; then
-    echo "Installing Ansible if Work Config "
-    git clone git://github.com/ansible/ansible.git --recursive
-    cd ./ansible || exit
-    # Also add to .zshrc
-    source ./hacking/env-setup -q
-    easy_install pip
-    pip install paramiko PyYAML Jinja2 httplib2 six
-    git pull --rebase
-fi
-
 echo "Install NixNote"
 add-apt-repository ppa:nixnote/nixnote2-daily
 apt update
 apt install nixnote2
+
+if [ ${ENV} == 1 ] ; then
+    echo "Installing Ansible if Work Config "
+    git clone git://github.com/ansible/ansible.git --recursive
+    cd ./ansible || exit
+    # Also add to .zshrc
+    source ./hacking/env-setup
+    echo "source ./hacking/env-setup -q" >> ~/.zshrc
+    easy_install pip
+    pip install paramiko PyYAML Jinja2 httplib2 six
+    git pull --rebase
+fi
 
 echo "FINISHED INSTALLATION, EXITING!"
 exit 0

@@ -1,5 +1,7 @@
 # Ubuntstall
 
+Curated list by me and installation script of productivity tools/configs. Mostly using java atm, so definitely a bias for java tools.
+
 Small utility bash script I hacked together after managing to completely fry my Partition Table the other day and having 
 reinstall every tool and setting up configs for a day I decided to script the entire thing.
 
@@ -32,13 +34,13 @@ clicking Links, see [StackOverflow Q](http://askubuntu.com/questions/62182/how-d
 * [PyCharm Community Edition](https://www.jetbrains.com/pycharm/)
 
 
-List may get longer whenever I find Tools I actually use.
+List may always get longer.
 
 ---
 
 #Usage
 
-For me to use the following way: 
+For _me_ to use the following way: 
 
 1. Create key.key with symmetric persisted git-crypt key.
 
@@ -52,3 +54,54 @@ At __WORK:__
 ```bash
 sh -c "sudo $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -w"
 ```
+
+#Development/Usage for Others
+
+Easiest way:
+
+(Installs all the tools listed above aside from PyCharm, Ansible and my personal configs.)
+
+```bash
+sh -c "sudo $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -o"
+```
+
+Harder Way with own persisted configs/keys:
+
+After the easy way is setup you can [fork](https://help.github.com/articles/fork-a-repo/) me and setup your
+own settings persistence repo the following way:
+
+1. Clone your Repo then git-crypt it and remove my old encrypted configs
+```bash
+rm files/*
+git-crypt init
+```
+2. Write a symmetric key file to ~/key.key (or a different path and adjust key path at beginning of script) or a gpg key, but then be aware script needs changing
+```bash
+git-crypt export-key ~/key.key
+```
+3. Test if git-crypt works by committing and pushing a test file in the files folder
+```bash
+touch files/test
+echo "test" >> files/test
+git add -A
+git commit -m "Testing git-crypt"
+git push 
+```
+4. Checkout your repo in Github to see if test file is gibberish, if yes add own config files and commit and push
+   Be aware my setup had files called like this, and different file names in repo require changing of script.
+
+   
+```project
+└───files
+|   | .vimrc (vim config)
+|   | .zshrc (zsh config)
+|   | idH (private rsa key)
+|   | idH.pub (public rsa key)
+|   | sshconfighome (sshconfig home)
+```
+
+---
+
+#Found a tool you think I should try?
+
+PR me including the installation in the script and I will take a look at it.
