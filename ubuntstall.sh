@@ -10,17 +10,17 @@ pycharmV="2016.3.2"
 keyPath="${HOME}/key.key"
 gradleV=3.3
 
-if [ "$0" = "home" ] || [ "$0" = "-ho" ] ; then
+if [ "$1" = "home" ] || [ "$1" = "-ho" ] ; then
     ENV=0
 else
-    if [ "$0" = "work" ] || [ "$0" = "-w" ] ; then
+    if [ "$1" = "work" ] || [ "$1" = "-w" ] ; then
         ENV=1
     fi
-    if [ "$0" = "help" ] || [ "$0" = "-h" ] ; then
+    if [ "$1" = "help" ] || [ "$1" = "-h" ] ; then
         echo "USAGE: ubuntustall.sh work | home"
         exit 0
     else
-        if [ "$0" = "other" ] || [ "$0" = "-o" ] ; then
+        if [ "$!" = "other" ] || [ "$1" = "-o" ] ; then
             ENV=2
         else
             echo "Wrong Parameter Entered, see https://github.com/Germandrummer92/ubuntustall/README.md for Usage Help"
