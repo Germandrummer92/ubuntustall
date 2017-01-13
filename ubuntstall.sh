@@ -137,6 +137,6 @@ fi
 cd ~ || exit
 rm -r tmp
 chown ${USER}:${USER} ~/idea* -R
-chown ${User}:${USER} ~/pycharm* -R
+chown ${USER}:${USER} ~/pycharm* -R
 echo "FINISHED INSTALLATION, EXITING!"
 exit 0
