@@ -24,10 +24,11 @@ fi
 
 echo "Starting Ubuntustall"
 
-# Create Temporary directory for temp files
+# Create Temporary directory for temp files/git-crypt
 mkdir ~/tmp
 mkdir ~/git-crypt
 # Install prerequisites
+
 echo "Installing Prerequisites"
 apt-get update
 apt-get -y upgrade
@@ -60,6 +61,8 @@ cp files/.zshrc ~
 cp files/.vimrc ~
 if [ ${ENV} == 0 ] ; then
     cp files/sshconfighome ~/.ssh/config
+    cp files/idH ~/.ssh/id_rsa
+    cp files/idH.pub ~/.ssh/id_rsa.pub
 fi
 
 # Add PPA for Oracle JDK and install the newest version
