@@ -81,7 +81,7 @@ own settings persistence repo the following way:
 2. Write a symmetric key file to ~/key.key (or a different path and adjust key path at beginning of script) or a gpg key, but then be aware script needs changing
     
     ```bash
-    git -crypt export-key ~/key.key
+    git-crypt export-key ~/key.key
     ```
     
 3. Test if git-crypt works by committing and pushing a test file in the files folder
