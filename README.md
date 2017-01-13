@@ -72,15 +72,20 @@ After the easy way is setup you can [fork](https://help.github.com/articles/fork
 own settings persistence repo the following way:
 
 1. Clone your Repo then git-crypt it and remove my old encrypted configs
+
     ```bash
     rm files/*
     git-crypt init
     ```
+    
 2. Write a symmetric key file to ~/key.key (or a different path and adjust key path at beginning of script) or a gpg key, but then be aware script needs changing
+    
     ```bash
     git -crypt export-key ~/key.key
     ```
+    
 3. Test if git-crypt works by committing and pushing a test file in the files folder
+
     ```bash
     touch files/test
     echo "test" >> files/test
@@ -88,6 +93,7 @@ own settings persistence repo the following way:
     git commit -m "Testing git-crypt"
     git push 
     ```
+    
 4. Checkout your repo in Github to see if test file is gibberish, if yes add own config files and commit and push
    Be aware my setup had files called like this, and different file names in repo require changing of script.
 
