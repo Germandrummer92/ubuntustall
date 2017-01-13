@@ -48,13 +48,12 @@ For _me_ to use the following way:
   
 At __HOME:__
 ```bash
-sh -c "sudo -E $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -ho"
+sudo -E sh -c  "curl https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh | bash -s -- -ho"```
 ```
 At __WORK:__
 ```bash
-sh -c "sudo -E $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -w"
+sudo -E sh -c  "curl https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh | bash -s -- -w"```
 ```
-
 #Development/Usage for Others
 
 Tested on fresh Ubuntu 16.1 install/VM.
@@ -64,7 +63,7 @@ Easiest way:
 (Installs all the tools listed above aside from PyCharm, Ansible and my personal configs.)
 
 ```bash
-sh -c "sudo -E $(wget https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh -O -) -o"
+sudo -E sh -c  "curl https://raw.githubusercontent.com/Germandrummer92/ubuntustall/master/ubuntstall.sh | bash -s -- -o"
 ```
 
 Harder Way with own persisted configs/keys:
