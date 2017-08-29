@@ -1,4 +1,4 @@
-# Ubuntstall
+# Ubuntustall
 
 Curated list by me and installation script of productivity tools/configs. Mostly using java atm, so definitely a bias for java tools.
 
@@ -27,10 +27,10 @@ clicking Links, see [StackOverflow Q](http://askubuntu.com/questions/62182/how-d
 * [Spotify](https://www.spotify.com/de/)
 * Configs with own customizations: sshconfig, keys, vimrc, zshrc
 
-####Work-Configuration only:
+#### Work-Configuration only:
 * [Ansible](https://www.ansible.com/)
 
-####Home-Configuration only:
+#### Home-Configuration only:
 * [PyCharm Community Edition](https://www.jetbrains.com/pycharm/)
 
 
@@ -38,7 +38,7 @@ List may always get longer.
 
 ---
 
-#Usage
+# Usage
 
 For _me_ to use the following way: 
 
@@ -109,6 +109,6 @@ own settings persistence repo the following way:
 
 ---
 
-#Found a tool you think I should try?
+# Found a tool you think I should try?
 
 PR me including the installation in the script and I will take a look at it.
